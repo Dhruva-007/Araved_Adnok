@@ -1,77 +1,120 @@
 "use client";
-import { Database, Users, Settings, Rocket, Shield, HeadphonesIcon } from 'lucide-react';
-import { AnimatedSection, AnimatedCard } from '@/components/AnimatedSection';
+
+import {
+  Database,
+  Users,
+  Settings,
+  Rocket,
+  Shield,
+  HeadphonesIcon
+} from "lucide-react";
+
+import { AnimatedSection, AnimatedCard } from "@/components/AnimatedSection";
 
 const services = [
   {
     icon: Database,
-    title: 'CRM Implementation',
-    description: 'Expert CRM implementation services including strategy development, system integration, data migration, and optimization to streamline your customer relationships and boost sales efficiency.',
+    category: "CRM",
+    title: "CRM Implementation",
+    description:
+      "Expert CRM implementation including strategy, integration, migration, and optimization to improve customer relationships and sales efficiency.",
   },
   {
     icon: Users,
-    title: 'Client-Focused Solutions',
-    description: 'We work closely with you to understand your challenges and create solutions that truly address your needs.',
+    category: "Consulting",
+    title: "Client-Focused Solutions",
+    description:
+      "We work closely with you to understand challenges and deliver solutions tailored specifically to your business needs.",
   },
   {
     icon: Settings,
-    title: 'Requirement-Based Delivery',
-    description: 'From gathering requirements to final deployment, we ensure every detail aligns with your vision and goals.',
+    category: "Delivery",
+    title: "Requirement-Based Delivery",
+    description:
+      "From requirement gathering to deployment, every step aligns with your business vision and goals.",
   },
   {
     icon: Rocket,
-    title: 'Scalable Architecture',
-    description: 'Build for today, ready for tomorrow. Our solutions are designed to grow with your business.',
+    category: "Architecture",
+    title: "Scalable Architecture",
+    description:
+      "Systems designed to scale with your growth while maintaining performance and reliability.",
   },
   {
     icon: Shield,
-    title: 'Quality Assurance',
-    description: 'Rigorous testing and quality control processes ensure reliable, bug-free software delivery.',
+    category: "Quality",
+    title: "Quality Assurance",
+    description:
+      "Comprehensive testing ensures stable, secure, and bug-free software delivery.",
   },
   {
     icon: HeadphonesIcon,
-    title: 'Ongoing Support',
-    description: 'Our relationship doesn\'t end at delivery. We provide continuous support and maintenance for your solutions.',
+    category: "Support",
+    title: "Ongoing Support",
+    description:
+      "Continuous monitoring, updates, and maintenance to keep your solutions running smoothly.",
   },
 ];
 
 export default function ServicesPage() {
   return (
-    <section className="relative pt-32 pb-24 lg:pb-32 bg-white min-h-screen">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-50/50 to-white" />
-      
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-sm font-medium mb-4">
+    <section className="relative pt-14 pb-10 bg-gradient-to-b from-white via-slate-50/50 to-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* HEADER */}
+        <AnimatedSection className="text-center mb-5">
+          <span className="inline-block px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-medium mb-2">
             Our Services
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-2">
             What We Offer
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Comprehensive services designed to transform your business
-            challenges into efficient, reliable solutions.
+
+          <p className="text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
+            Comprehensive services designed to transform your business challenges into efficient, reliable solutions.
           </p>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* GRID — SAME AS PROJECTS */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-2 lg:gap-y-2">
           {services.map((service, index) => (
-            <AnimatedCard key={service.title} delay={index * 0.1}>
-              <div className="group h-full p-8 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-blue-100 transition-all duration-300">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <service.icon className="w-7 h-7 text-white" />
+            <AnimatedCard key={service.title} delay={index * 0.06}>
+              <div className="group h-full bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300">
+
+                {/* Header */}
+                <div className="p-4 pb-2">
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-slate-100 to-slate-50 flex items-center justify-center group-hover:from-blue-500 group-hover:to-cyan-400 transition-all duration-300">
+                      <service.icon className="w-5 h-5 text-slate-600 group-hover:text-white transition-colors duration-300" />
+                    </div>
+
+                    <span className="text-[10px] font-medium text-slate-400 uppercase tracking-wider">
+                      {service.category}
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+                    {service.title}
+                  </h3>
                 </div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-slate-600 leading-relaxed">
-                  {service.description}
-                </p>
+
+                {/* Description */}
+                <div className="px-4 pb-4">
+                  <span className="text-[10px] font-semibold text-blue-500 uppercase tracking-wider">
+                    Service
+                  </span>
+
+                  <p className="text-sm text-slate-600 mt-1 leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+
               </div>
             </AnimatedCard>
           ))}
         </div>
+
       </div>
     </section>
   );
