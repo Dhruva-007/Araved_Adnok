@@ -1,5 +1,5 @@
 "use client";
-import { useState, FormEvent } from 'react';
+import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
 import { AnimatedSection, AnimatedCard } from '@/components/AnimatedSection';
 
@@ -33,14 +33,35 @@ export default function ContactPage() {
 
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
 
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 3000);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Submission failed');
+      }
+
+      setSubmitted(true);
+
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({ name: '', email: '', message: '' });
+      }, 3000);
+
+    } catch (error) {
+      console.error(error);
+      alert('Failed to send message. Please try again.');
+    }
   };
 
   return (
@@ -151,7 +172,7 @@ export default function ContactPage() {
               </div>
             </AnimatedCard>
 
-            {/* CONTACT INFO */}
+            {/* CONTACT INFO (UNCHANGED) */}
             <AnimatedCard className="lg:col-span-2" delay={0.2}>
               <div className="space-y-5">
 
@@ -166,22 +187,14 @@ export default function ContactPage() {
 
                   <div className="space-y-5">
                     {contactInfo.map((info) => (
-                        <a
-                            key={info.label}
-                            href={info.href}
-                            className="flex items-start gap-4 group"
-                        >
+                        <a key={info.label} href={info.href} className="flex items-start gap-4 group">
                           <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition">
                             <info.icon className="w-5 h-5" />
                           </div>
 
                           <div>
-                            <div className="text-xs text-blue-100">
-                              {info.label}
-                            </div>
-                            <div className="font-medium group-hover:underline">
-                              {info.value}
-                            </div>
+                            <div className="text-xs text-blue-100">{info.label}</div>
+                            <div className="font-medium group-hover:underline">{info.value}</div>
                           </div>
                         </a>
                     ))}
