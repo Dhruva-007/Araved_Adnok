@@ -45,7 +45,19 @@ const coreTeam = [
     role: 'Software Consultant',
     description: 'A Software Professional with strong technical expertise and practical industry experience.',
   },
+    {
+      name:'Chandratej',
+      role:'Financial Advisor',
+      description:'A Financial Advisor with a strong background in financial analysis, strategic planning, and risk management.',
+        },
 ];
+const ChiefAdvisor = [
+    {
+        name:'Dr.Vasumathi',
+        role:'Chief Advisor',
+        description:'A Chief Advisor with extensive experience in guiding strategic decisions and providing expert insights across various industries.',
+        },
+    ];
 
 const interns = [
   {
@@ -150,10 +162,10 @@ export default function AboutPage() {
                 </span>
               </h3>
             </AnimatedSection>
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8 w-full max-w-[1600px]   mx-auto">
               {coreTeam.map((member, index) => (
                 <AnimatedCard key={member.name} delay={index * 0.15}>
-                  <div className="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                  <div className="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden ">
                     <div className="p-8">
                       <div className="flex items-center gap-4 mb-4">
                         <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center text-white text-xl font-bold">
@@ -181,6 +193,43 @@ export default function AboutPage() {
               ))}
             </div>
           </div>
+          {/* Chief Advisor */}
+          <div className="mb-16">
+            <AnimatedSection>
+              <h3 className="text-xl font-semibold text-slate-900 mb-8 text-center">
+                <span className="inline-block px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg">
+                  Chief Advisor
+                </span>
+              </h3>
+            </AnimatedSection>
+
+            <div className="grid md:grid-cols-2 gap-x-12 gap-y-8 max-w-4xl ml-1 ">
+              {ChiefAdvisor.map((member, index) => (
+                <AnimatedCard key={member.name} delay={index * 0.15}>
+                  <div className="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <div className="p-8">
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-400 to-blue-400 flex items-center justify-center text-white text-xl font-bold">
+                          {member.name.split(' ').map(n => n[0]).join('')}
+                        </div>
+
+                        <div>
+                          <h4 className="text-xl font-semibold text-slate-900">
+                            {member.name}
+                          </h4>
+                          <p className="text-cyan-600 font-medium">{member.role}</p>
+                        </div>
+                      </div>
+
+                      <p className="text-slate-600 leading-relaxed">
+                        {member.description}
+                      </p>
+                    </div>
+                  </div>
+                </AnimatedCard>
+              ))}
+            </div>
+          </div>
 
           {/* Smart Interns */}
           <div>
@@ -191,7 +240,7 @@ export default function AboutPage() {
                 </span>
               </h3>
             </AnimatedSection>
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl ml-1">
               {interns.map((member, index) => (
                 <AnimatedCard key={member.name} delay={index * 0.15}>
                   <div className="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
