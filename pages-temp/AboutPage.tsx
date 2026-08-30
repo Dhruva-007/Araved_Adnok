@@ -36,24 +36,24 @@ const commitments = [
 
 const coreTeam = [
   {
-    name: 'M V Narayana',
+    name: 'MAHAVISHNU',
     role: 'Technology Leader',
     description: 'A Software Engineer and Technology Leader with deep experience in building dependable, well-crafted digital solutions.',
   },
   {
-    name: 'Janardhan',
+    name: 'K JAGADISH',
     role: 'Software Consultant',
     description: 'A Software Professional with strong technical expertise and practical industry experience.',
   },
     {
-      name:'Chandratej',
+      name:'K CHANDRATEJ',
       role:'Financial Advisor',
       description:'A Financial Advisor with a strong background in financial analysis, strategic planning, and risk management.',
         },
 ];
 const ChiefAdvisor = [
     {
-        name:'Dr.Vasumathi',
+        name:'Dr. D VASUMATHI',
         role:'Chief Advisor',
         description:'A Chief Advisor with extensive experience in guiding strategic decisions and providing expert insights across various industries.',
         },
@@ -61,14 +61,19 @@ const ChiefAdvisor = [
 
 const interns = [
   {
-    name: 'G Dhruvann',
+    name: 'G DHRUVANN',
     role: 'SDE1',
     description: 'An innovation led developer who blends creativity with rigorous analytical insight to architect scalable, high performance systems that address complex real world challenges. Driven to build what truly matters.',
   },
   {
-    name: 'Revanth K',
+    name: 'REVANTH K',
     role: 'SDE1',
     description: 'A creative, innovative, and disciplined developer with strong analytical and problem-solving skills. I focus on building efficient, well-structured solutions while continuously striving for technical growth and excellence.',
+  },
+  {
+    name: 'D VIJAY',
+    role: 'Jr. Full Stack Developer',
+    description: 'Enthusiastic Full Stack Developer passionate about building web applications and solving technical challenges, with a strong interest in modern technologies, continuous learning, and professional growth.',
   },
 ];
 
@@ -93,7 +98,7 @@ export default function AboutPage() {
               </h2>
               <p className="text-lg text-slate-600 mb-6 leading-relaxed">
                 Araved Adnok is a company dedicated to understanding
-                and solving the unique challenges businesses face. We don't believe in 
+                and solving the unique challenges businesses face. We don&apos;t believe in 
                 one-size-fits-all solutions – every project begins with listening.
               </p>
               <p className="text-lg text-slate-600 mb-8 leading-relaxed">
